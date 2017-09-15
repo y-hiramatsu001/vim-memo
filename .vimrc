@@ -25,6 +25,7 @@ call dein#end()
 " ========================================
 " vimの設定
 " ========================================
+colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
 syntax on
 set autoindent
 set smartindent
