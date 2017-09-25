@@ -36,6 +36,7 @@ set cursorline
 set number
 set backspace=indent,eol,start
 set history=1000
+set clipboard=unnamed " クリップボードにyankを同期
 
 " ========================================
 " Unite.vimの設定(バッファからファイル開ける)
@@ -74,6 +75,7 @@ nnoremap <C-t> :tabnew<CR>:e .<CR>
 " phpタグ挿入
 inoremap php<TAB> <?php   ?><LEFT><LEFT><LEFT><LEFT>
 
-
+" 縦割りでnewファイルリスト表示
+ nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 
 
