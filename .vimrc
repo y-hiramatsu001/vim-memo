@@ -76,6 +76,6 @@ nnoremap <C-t> :tabnew<CR>:e .<CR>
 inoremap php<TAB> <?php   ?><LEFT><LEFT><LEFT><LEFT>
 
 " 縦割りでnewファイルリスト表示
- nnoremap :vnew<CR> :vnew<CR>:e .<CR>
+nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 
 
