@@ -12,13 +12,14 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim') " 履歴から開く
+call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('mattn/emmet-vim')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('Shougo/unite.vim')
 call dein#add('scrooloose/nerdtree') " :NERDTree を打つとTree表示が起動します
 call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
+call dein#add('posva/vim-vue') " vueのカラーシンタックス
 
 call dein#end()
 
@@ -36,7 +37,7 @@ set cursorline
 set number
 set backspace=indent,eol,start
 set history=1000
-set clipboard=unnamed " クリップボードにyankを同期
+" set clipboard=unnamed " クリップボードにyankを同期
 
 " ========================================
 " Unite.vimの設定(バッファからファイル開ける)
@@ -76,11 +77,11 @@ nnoremap <C-t> :tabnew<CR>:e .<CR>
 inoremap php<TAB> <?php   ?><LEFT><LEFT><LEFT><LEFT>
 
 " 縦割りでnewファイルリスト表示
-" nnoremap :vnew<CR> :vnew<CR>:e .<CR>
+nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 
-
-
-
+" ディレクトリ内検索
+inoremap <C-r> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+nnoremap <C-r> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 
 
