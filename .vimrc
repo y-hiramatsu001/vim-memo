@@ -20,6 +20,7 @@ call dein#add('Shougo/unite.vim')
 call dein#add('scrooloose/nerdtree') " :NERDTree を打つとTree表示が起動します
 call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
 call dein#add('posva/vim-vue') " vueのカラーシンタックス
+call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
 
 call dein#end()
 
