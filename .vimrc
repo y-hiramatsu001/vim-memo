@@ -37,6 +37,7 @@ set cursorline
 set number
 set backspace=indent,eol,start
 set history=1000
+set ignorecase
 " set clipboard=unnamed " クリップボードにyankを同期
 
 " ========================================
@@ -80,8 +81,7 @@ inoremap php<TAB> <?php   ?><LEFT><LEFT><LEFT><LEFT>
 nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 
 " ディレクトリ内検索
-inoremap <C-r> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-nnoremap <C-r> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-
+inoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+nnoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 
