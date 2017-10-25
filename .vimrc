@@ -16,7 +16,7 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('mattn/emmet-vim')
 call dein#add('terryma/vim-multiple-cursors')
-call dein#add('Shougo/unite.vim')
+" call dein#add('Shougo/unite.vim')
 call dein#add('scrooloose/nerdtree') " :NERDTree を打つとTree表示が起動します
 call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
 call dein#add('posva/vim-vue') " vueのカラーシンタックス
@@ -85,4 +85,7 @@ nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 inoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 nnoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
+" ctags設定(<C-]>でジャンプ、<C-o>で戻れる)
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
