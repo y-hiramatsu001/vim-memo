@@ -86,10 +86,12 @@ inoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><
 nnoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 " ctags設定(<C-]>でジャンプ、<C-o>で戻れる)
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>                                         
 
-
+" ctrl + h , l でタブ切り替え
+nnoremap <C-h> gT
+nnoremap <C-l> gt
 
 
