@@ -43,6 +43,7 @@ set noswapfile " swpファイルを作成しない
 set title " windowのタイトル表示
 set hlsearch " 検索結果をハイライト
 " set clipboard=unnamed " クリップボードにyankを同期
+autocmd QuickFixCmdPost *grep* cwindow " quickfix-wondowを|cwしなくても開けるようになる
 
 " ========================================
 " Unite.vimの設定(バッファからファイル開ける)
