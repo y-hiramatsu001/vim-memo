@@ -39,6 +39,9 @@ set number
 set backspace=indent,eol,start
 set history=1000
 set ignorecase
+set noswapfile " swpファイルを作成しない
+set title " windowのタイトル表示
+set hlsearch " 検索結果をハイライト
 " set clipboard=unnamed " クリップボードにyankを同期
 
 " ========================================
@@ -71,6 +74,9 @@ inoremap jj <Esc>:w<CR>
 " ctrl + tでタブを開いてツリー表示
 nnoremap <C-t> :tabnew<CR>:e .<CR>
 
+" ctrl + k でツリーの表示、非表示
+nnoremap <C-k> :NERDTreeToggle<CR>
+
 " 閉じ括弧の自動挿入（十字キーの挙動がおかしくなるからコメントアウト）
 " inoremap { {}<LEFT>
 " inoremap ( ()<LEFT>
@@ -85,6 +91,9 @@ nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 inoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 nnoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
+" ファイル内置換
+nnoremap <C-h> <Esc>:%s///gc
+
 " ctags設定(<C-]>でジャンプ、<C-o>で戻れる)
 " nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " tagsジャンプの時に複数ある時は一覧表示
@@ -93,5 +102,3 @@ nnoremap <C-]> g<C-]>
 " ctrl + h , l でタブ切り替え
 nnoremap <C-h> gT
 nnoremap <C-l> gt
-
-
