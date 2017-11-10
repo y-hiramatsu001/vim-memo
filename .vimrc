@@ -19,8 +19,9 @@ call dein#add('terryma/vim-multiple-cursors')
 " call dein#add('Shougo/unite.vim')
 call dein#add('scrooloose/nerdtree') " :NERDTree を打つとTree表示が起動します
 call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
-call dein#add('posva/vim-vue') " vueのカラーシンタックス
+call dein#add('posva/vim-vue') " vue.jsのカラーシンタックス
 call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
+call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
 
 call dein#end()
 
@@ -29,28 +30,28 @@ call dein#end()
 " ========================================
 
 " ===============
-" ステータスラインの設定
+" ステータスラインの設定（vim-powerline入れたのでコメントアウト）
 " ===============
 " 色
-highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=236
+" highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=236
 " ファイル名表示
-set statusline=%F
+" set statusline=%F
 " 変更チェック表示
-set statusline+=%m
+" set statusline+=%m
 " 読み込み専用かどうか表示
-set statusline+=%r
+" set statusline+=%r
 " ヘルプページなら[HELP]と表示
-set statusline+=%h
+" set statusline+=%h
 " プレビューウインドウなら[Prevew]と表示
-set statusline+=%w
+" set statusline+=%w
 " これ以降は右寄せ表示
-set statusline+=%=
+" set statusline+=%=
 " file encoding
-set statusline+=[ENC=%{&fileencoding}]
+" set statusline+=[ENC=%{&fileencoding}]
 " 現在行数/全行数
-set statusline+=[LOW=%l/%L]
+" set statusline+=[LOW=%l/%L]
 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-set laststatus=2
+" set laststatus=2
 
 colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
 syntax on
@@ -68,7 +69,7 @@ set noswapfile " swpファイルを作成しない
 set title " windowのタイトル表示
 set hlsearch " 検索結果をハイライト
 " set clipboard=unnamed " クリップボードにyankを同期
-autocmd QuickFixCmdPost *grep* cwindow " quickfix-wondowを|cwしなくても開けるようになる
+autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 
 
 " ========================================
@@ -76,7 +77,7 @@ autocmd QuickFixCmdPost *grep* cwindow " quickfix-wondowを|cwしなくても開
 " ========================================
 
 " 入力モードで開始する
-let g:unite_enable_start_insert=1
+" let g:unite_enable_start_insert=1
 
 " バッファ一覧
 " noremap <C-P> :Unite buffer<CR>

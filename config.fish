@@ -14,8 +14,10 @@ balias lla 'ls -al'
 balias rm 'rmtrash'
 balias gs 'git status'
 balias gl 'git log'
+balias glo 'git log --oneline'
 balias gb 'git branch'
 balias gc 'git checkout'
+
 
 # cdしたらll
 function cd
@@ -53,6 +55,5 @@ function cd
     ls -al
     return $status
 end
-
 
 
