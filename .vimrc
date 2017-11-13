@@ -11,9 +11,9 @@ set runtimepath+=~/.vim/deinvim/dein.vim
 call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
+" call dein#add('Shougo/neocomplete.vim')
+" call dein#add('Shougo/neomru.vim')
+" call dein#add('Shougo/neosnippet')
 call dein#add('mattn/emmet-vim')
 call dein#add('terryma/vim-multiple-cursors')
 " call dein#add('Shougo/unite.vim')
@@ -23,6 +23,8 @@ call dein#add('posva/vim-vue') " vue.jsのカラーシンタックス
 call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
 call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
 call dein#add('joshdick/onedark.vim') " atomのcolorシンタックス
+
+" call map(dein#check_clean(), "delete(v:val, 'rf')") " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
 
 call dein#end()
 
@@ -132,3 +134,7 @@ nnoremap <C-]> g<C-]>
 " ctrl + h , l でタブ切り替え
 nnoremap <C-h> gT
 nnoremap <C-l> gt
+
+" 幅を狭める
+nnoremap <C-j> <C-w><
+
