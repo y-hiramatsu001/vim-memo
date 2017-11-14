@@ -22,7 +22,6 @@ call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2�
 call dein#add('posva/vim-vue') " vue.jsのカラーシンタックス
 call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
 call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
-" call dein#add('joshdick/onedark.vim') " atomのcolorシンタックス
 
 " call map(dein#check_clean(), "delete(v:val, 'rf')") " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
 
@@ -59,7 +58,7 @@ call dein#end()
 
 syntax on
 " colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
-colorscheme onedark " onedarkはdeinでインストールしました 
+colorscheme onedark " ~.vim/colorsと~.vim/autoload配下にonedark.vimを置く必要あり（公式のリポジトリ参照）
 set autoindent
 set smartindent
 set expandtab
