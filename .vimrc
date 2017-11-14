@@ -1,6 +1,6 @@
 " ========================================
 " dein.vimの設定
-" :call dein#install()でインストールできる
+" :call dein#install()でインストール
 " ========================================
 if &compatible
   set nocompatible
@@ -22,11 +22,12 @@ call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2�
 call dein#add('posva/vim-vue') " vue.jsのカラーシンタックス
 call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
 call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
-call dein#add('joshdick/onedark.vim') " atomのcolorシンタックス
+" call dein#add('joshdick/onedark.vim') " atomのcolorシンタックス
 
 " call map(dein#check_clean(), "delete(v:val, 'rf')") " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
 
 call dein#end()
+
 
 " ========================================
 " vimの設定
@@ -76,21 +77,14 @@ set hlsearch " 検索結果をハイライト
 " autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
 
+
 " ========================================
-" Unite.vimの設定(バッファからファイル開ける)
+" ctrlp.vimの設定(内部grepの対象外にしたい)
 " ========================================
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.svg,*/node_modules/*
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_match_window = 'bottom,min:1,max:40,results:40'
 
-" 入力モードで開始する
-" let g:unite_enable_start_insert=1
-
-" バッファ一覧
-" noremap <C-P> :Unite buffer<CR>
-
-" ファイル一覧
-" noremap <C-N> :Unite -buffer-name=file file<CR>
-
-" 最近使ったファイルの一覧
-" noremap <C-Z> :Unite file_mru<CR>
 
 " ========================================
 " key bind
