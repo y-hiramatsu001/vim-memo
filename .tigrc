@@ -1,0 +1,6 @@
+# 水平分割の設定
+set vertical-split = no
+set split-view-height = 70%
+
+# main viewの項目
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
