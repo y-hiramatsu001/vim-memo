@@ -1,4 +1,6 @@
 # 環境変数
+set -x PATH $PATH /usr/local/bin
+set -x PATH $PATH /usr/bin
 set -x PATH $PATH $HOME/.nodebrew/current/bin
 set -x PATH $PATH `yarn global bin`
 
