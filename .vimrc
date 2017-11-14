@@ -81,7 +81,7 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-window�
 " ctrlp.vimの設定(内部grepの対象外にしたい)
 " ========================================
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.svg,*/node_modules/*
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window = 'bottom,min:1,max:40,results:40'
 
 
