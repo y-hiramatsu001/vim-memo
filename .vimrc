@@ -32,6 +32,27 @@ call dein#end()
 " vimの設定
 " ========================================
 
+syntax on
+" colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
+colorscheme onedark " ~.vim/colorsと~.vim/autoload配下にonedark.vimを置く必要あり（公式のリポジトリ参照）
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set cursorline
+set number
+set backspace=indent,eol,start
+set history=1000
+set ignorecase
+set noswapfile " swpファイルを作成しない
+set title " windowのタイトル表示
+set hlsearch " 検索結果をハイライト
+" set clipboard=unnamed " クリップボードにyankを同期
+" autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
+
+
 " ===============
 " ステータスラインの設定（vim-powerline入れたのでコメントアウト）
 " ===============
@@ -54,27 +75,14 @@ call dein#end()
 " 現在行数/全行数
 " set statusline+=[LOW=%l/%L]
 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-" set laststatus=2
+set laststatus=2
 
-syntax on
-" colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
-colorscheme onedark " ~.vim/colorsと~.vim/autoload配下にonedark.vimを置く必要あり（公式のリポジトリ参照）
-set autoindent
-set smartindent
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set cursorline
-set number
-set backspace=indent,eol,start
-set history=1000
-set ignorecase
-set noswapfile " swpファイルを作成しない
-set title " windowのタイトル表示
-set hlsearch " 検索結果をハイライト
-" set clipboard=unnamed " クリップボードにyankを同期
-" autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
-autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
+
+" ==============
+" vim-powerlineの設定
+" ===============
+" 三角のやつ
+let g:Powerline_symbols = 'fancy'
 
 
 " ========================================
@@ -113,8 +121,8 @@ inoremap php<TAB> <?php   ?><LEFT><LEFT><LEFT><LEFT>
 nnoremap :vnew<CR> :vnew<CR>:e .<CR>
 
 " ディレクトリ内検索
-inoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-nnoremap <C-f> <Esc>:vim //j ./**\|cw<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+inoremap <C-f> <Esc>:vim //j ./**\<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+nnoremap <C-f> <Esc>:vim //j ./**\<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 " ファイル内置換
 nnoremap <C-h> <Esc>:%s///gc
