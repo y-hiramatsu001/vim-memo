@@ -6,5 +6,5 @@
     fc-cache -vf
 
 ## fisher plugin
-    * balias
-    * peco
+* balias
+* peco
