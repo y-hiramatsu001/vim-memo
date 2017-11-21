@@ -8,3 +8,11 @@
 ## fisher plugin
 * balias
 * peco
+
+## VS Code vim plugin settings
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
