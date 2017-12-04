@@ -17,10 +17,25 @@ call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('mattn/emmet-vim')
 call dein#add('terryma/vim-multiple-cursors')
 " call dein#add('Shougo/unite.vim')
-call dein#add('scrooloose/nerdtree') " :NERDTree を打つとTree表示が起動します
-call dein#add('tomtom/tcomment_vim') " 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
-call dein#add('posva/vim-vue') " vue.jsのカラーシンタックス
-call dein#add('ctrlpvim/ctrlp.vim') " あいまい検索でファイルを開く
+
+" :NERDTree を打つとTree表示が起動します
+" t -> 新しいタブで開く
+" i -> 水平分割して開く
+" s -> 垂直分割して開く
+call dein#add('scrooloose/nerdtree')
+
+" 選択範囲を ctrl + - (ハイフン2回押し)でコメントアウト
+call dein#add('tomtom/tcomment_vim')
+
+" vue.jsのカラーシンタックス
+call dein#add('posva/vim-vue') 
+
+" あいまい検索でファイルを開く
+" Ctrl+t -> 新しいタブ
+" Ctrl+s -> 水平分割
+" Ctrl+v -> 垂直分割
+call dein#add('ctrlpvim/ctrlp.vim') 
+
 call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
 
 " call map(dein#check_clean(), "delete(v:val, 'rf')") " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
@@ -104,12 +119,6 @@ vmap <C-e> <C-y>,
 " jj でesc
 inoremap jj <Esc>
 
-" ctrl + tでタブを開いてツリー表示
-nnoremap <C-t> :tabnew<CR>:e .<CR>
-
-" ctrl + k でツリーの表示、非表示
-nnoremap <C-k> :NERDTreeToggle<CR>
-
 " 閉じ括弧の自動挿入（十字キーの挙動がおかしくなるからコメントアウト）
 " inoremap { {}<LEFT>
 " inoremap ( ()<LEFT>
@@ -141,4 +150,13 @@ nnoremap <C-l> gt
 
 " 幅を狭める
 nnoremap <C-j> <C-w><
+
+" ページ分割系
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap st :<C-u>tabnew<CR>:e .<CR>
+" ctrl + tでタブを開いてツリー表示
+nnoremap <C-t> :tabnew<CR>:e .<CR>
+" ctrl + k でツリーの表示、非表示
+nnoremap <C-k> :NERDTreeToggle<CR>
 
