@@ -102,7 +102,7 @@ imap <C-e> <C-y>,
 vmap <C-e> <C-y>,
 
 " jj でesc
-inoremap jj <Esc>:w<CR>
+inoremap jj <Esc>
 
 " ctrl + tでタブを開いてツリー表示
 nnoremap <C-t> :tabnew<CR>:e .<CR>
@@ -126,6 +126,9 @@ nnoremap <C-f> <Esc>:vim //j ./**\<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEF
 
 " ファイル内置換
 nnoremap <C-h> <Esc>:%s///gc
+
+" ファイル内置換(選択範囲を絞って)
+vnoremap <C-h> :s///gc<LEFT><LEFT><LEFT><LEFT>
 
 " ctags設定(<C-]>でジャンプ、<C-o>で戻れる)
 " nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
