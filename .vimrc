@@ -28,13 +28,13 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('tomtom/tcomment_vim')
 
 " vue.jsのカラーシンタックス
-call dein#add('posva/vim-vue') 
+call dein#add('posva/vim-vue')
 
 " あいまい検索でファイルを開く
 " Ctrl+t -> 新しいタブ
 " Ctrl+s -> 水平分割
 " Ctrl+v -> 垂直分割
-call dein#add('ctrlpvim/ctrlp.vim') 
+call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
 
@@ -64,8 +64,13 @@ set noswapfile " swpファイルを作成しない
 set title " windowのタイトル表示
 set hlsearch " 検索結果をハイライト
 " set clipboard=unnamed " クリップボードにyankを同期
+
 " autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
+
+" 行末の空白を保存時に自動削除
+" autocmd BufWritePre * :%s/\s\+$//ge
+
 
 
 " ===============
@@ -142,7 +147,7 @@ vnoremap <C-h> :s///gc<LEFT><LEFT><LEFT><LEFT>
 " ctags設定(<C-]>でジャンプ、<C-o>で戻れる)
 " nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>                                         
+nnoremap <C-]> g<C-]>
 
 " ctrl + h , l でタブ切り替え
 nnoremap <C-h> gT
