@@ -64,6 +64,10 @@ set noswapfile " swpファイルを作成しない
 set title " windowのタイトル表示
 set hlsearch " 検索結果をハイライト
 " set clipboard=unnamed " クリップボードにyankを同期
+set showmatch " 括弧の対応関係を一瞬表示する
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンド履歴の数
+
 
 " autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
@@ -111,6 +115,8 @@ let g:Powerline_symbols = 'fancy'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.svg,*/node_modules/*
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window = 'bottom,min:1,max:40,results:40'
+let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
+let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
 
 
 " ========================================
@@ -157,11 +163,16 @@ nnoremap <C-l> gt
 nnoremap <C-j> <C-w><
 
 " ページ分割系
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap st :<C-u>tabnew<CR>:e .<CR>
+nnoremap <C-s>s :<C-u>sp<CR>
+nnoremap <C-s>v :<C-u>vs<CR>
+nnoremap <C-s>t :<C-u>tabnew<CR>:e .<CR>
 " ctrl + tでタブを開いてツリー表示
-nnoremap <C-t> :tabnew<CR>:e .<CR>
+" nnoremap <C-t> :tabnew<CR>:e .<CR>
 " ctrl + k でツリーの表示、非表示
-nnoremap <C-k> :NERDTreeToggle<CR>
+nnoremap <C-k> :NERDTreeFind<CR>
 
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk
