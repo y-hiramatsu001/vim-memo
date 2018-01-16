@@ -16,3 +16,21 @@
             "after": ["<Esc>"]
         }
     ],
+
+## VS Code plugin list
+* .ejs
+* All Autocomplete
+* ArgonautTheme
+* AtomOneDarkTheme
+* Beautify
+* EditorConfig for VS code
+* ESLint
+* Javascript(ES6)code snippets
+* jQueryCodeSnippets
+* PostCSSsyntax
+* ReactReduxES6Snippets
+* SimpleIconTheme
+* Vetur
+* Vim
+* vscode-input-sequence
+
