@@ -36,3 +36,6 @@
 * Auto-Open Markdown Preview
 * markdown pdf
 
+## VS Code plugin list
+    Cmd+Shift+P
+    convert markdown to pdf
