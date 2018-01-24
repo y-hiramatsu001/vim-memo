@@ -33,4 +33,6 @@
 * Vetur
 * Vim
 * vscode-input-sequence
+* Auto-Open Markdown Preview
+* markdown pdf
 
