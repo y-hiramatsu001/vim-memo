@@ -15,10 +15,13 @@ end
 balias lla 'ls -al'
 balias rm 'rmtrash'
 balias gs 'git status'
+balias gp 'git pull'
 balias gl 'git log'
 balias glo 'git log --oneline'
 balias gb 'git branch'
 balias gc 'git checkout'
+balias gsl 'git stash list'
+balias gss 'git stash save'
 
 
 # cdしたらll
