@@ -35,6 +35,7 @@
 * vscode-input-sequence
 * Auto-Open Markdown Preview
 * markdown pdf
+* Apache conf
 
 ## convert markdown to pdf
     Cmd+Shift+P
