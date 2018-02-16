@@ -36,6 +36,7 @@
 * Auto-Open Markdown Preview
 * markdown pdf
 * Apache conf
+* IntelliSense for CSS class names
 
 ## convert markdown to pdf
     Cmd+Shift+P
