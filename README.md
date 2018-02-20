@@ -37,6 +37,7 @@
 * markdown pdf
 * Apache conf
 * IntelliSense for CSS class names
+* vscode-pdf
 
 ## convert markdown to pdf
     Cmd+Shift+P
