@@ -9,6 +9,11 @@
 * balias
 * peco
 
+## diff-highlight settings
+* /usr/local/bin配下に
+* /usr/local/share/git-core/contrib/diff-highlight/diff-highlightの
+* シンボリックリンク追加
+
 ## VS Code vim plugin settings
     "vim.insertModeKeyBindings": [
         {
