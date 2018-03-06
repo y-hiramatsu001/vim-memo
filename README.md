@@ -8,6 +8,7 @@
 ## fisher plugin
 * balias
 * peco
+* bobthefish
 
 ## diff-highlight settings
 * /usr/local/bin配下に
