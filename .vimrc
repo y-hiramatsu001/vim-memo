@@ -48,8 +48,11 @@ call dein#add('Shougo/neosnippet')
 " スニペット集
 call dein#add('Shougo/neosnippet-snippets')
 
+" インデントライン可視化
+call dein#add('Yggdroot/indentLine')
+
 " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
-call map(dein#check_clean(), "delete(v:val, 'rf')") 
+" call map(dein#check_clean(), "delete(v:val, 'rf')") 
 
 call dein#end()
 
@@ -58,9 +61,14 @@ call dein#end()
 " vimの基本設定
 " ========================================
 
+" カラー系の設定
 syntax on
-" colorscheme molokai " ~.vim/colors配下にmolokai.vimを置く必要あり
-colorscheme onedark " ~.vim/colorsと~.vim/autoload配下にonedark.vimを置く必要あり（公式のリポジトリ参照）
+" ~.vim/colors配下にmolokai.vimを置く必要あり
+" colorscheme molokai
+" ~.vim/colorsと~.vim/autoload配下にonedark.vimを置く必要あり（公式のリポジトリ参照）
+colorscheme onedark
+
+" インデント系の設定
 set autoindent
 set smartindent
 set expandtab
@@ -69,19 +77,28 @@ set shiftwidth=4
 set cursorline
 set number
 set backspace=indent,eol,start
-set history=1000
-set ignorecase
-set noswapfile " swpファイルを作成しない
-set title " windowのタイトル表示
-set hlsearch " 検索結果をハイライト
-set clipboard=unnamed " クリップボードにyankを同期
-set showmatch " 括弧の対応関係を一瞬表示する
-set wildmenu " コマンドモードの補完
-set history=5000 " 保存するコマンド履歴の数
+
+" 文字コード系の設定
 set fileencoding=utf-8 " 保存時の文字コード
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
 set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
 set ambiwidth=double " □や○文字が崩れる問題を解決
+
+" 文字列検索系
+set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
+set ignorecase " 検索パターンに大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set hlsearch " 検索結果をハイライト
+
+" 括弧、タグジャンプ
+set showmatch " 括弧の対応関係を一瞬表示する
+
+" その他設定
+set noswapfile " swpファイルを作成しない
+set title " windowのタイトル表示
+set clipboard=unnamed " クリップボードにyankを同期
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンド履歴の数
 
 " autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
@@ -111,9 +128,9 @@ imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : 
 imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 
-" ===============
+" ========================================
 " ステータスラインの設定（vim-powerline入れたのでコメントアウト）
-" ===============
+" ========================================
 " 色
 " highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=236
 " ファイル名表示
