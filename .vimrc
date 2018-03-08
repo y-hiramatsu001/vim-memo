@@ -9,14 +9,14 @@ endif
 set runtimepath+=~/.vim/deinvim/dein.vim
 
 call dein#begin(expand('~/.vim/dein'))
+
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-" call dein#add('Shougo/neocomplete.vim')
-" call dein#add('Shougo/neomru.vim')
-" call dein#add('Shougo/neosnippet')
+" emmetプラグイン
 call dein#add('mattn/emmet-vim')
+
+" 同時編集
 call dein#add('terryma/vim-multiple-cursors')
-" call dein#add('Shougo/unite.vim')
 
 " :NERDTree を打つとTree表示が起動します
 " t -> 新しいタブで開く
@@ -35,16 +35,27 @@ call dein#add('posva/vim-vue')
 " Ctrl+s -> 水平分割
 " Ctrl+v -> 垂直分割
 call dein#add('ctrlpvim/ctrlp.vim')
+" CtrlPの拡張プラグイン. 関数検索
+call dein#add('tacahiroy/ctrlp-funky')
 
-call dein#add('Lokaltog/vim-powerline') " ステータスラインをかっこよく
+" ステータスラインをかっこよく
+call dein#add('Lokaltog/vim-powerline') 
 
-" call map(dein#check_clean(), "delete(v:val, 'rf')") " 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
+" コードの自動補完
+call dein#add('Shougo/neocomplete.vim') 
+" スニペットの補完機能
+call dein#add('Shougo/neosnippet')
+" スニペット集
+call dein#add('Shougo/neosnippet-snippets')
+
+" 未使用プラグイン削除(:call dein#recache_runtimepath() ←vim再起動後にこれを実行)
+call map(dein#check_clean(), "delete(v:val, 'rf')") 
 
 call dein#end()
 
 
 " ========================================
-" vimの設定
+" vimの基本設定
 " ========================================
 
 syntax on
@@ -63,11 +74,14 @@ set ignorecase
 set noswapfile " swpファイルを作成しない
 set title " windowのタイトル表示
 set hlsearch " 検索結果をハイライト
-" set clipboard=unnamed " クリップボードにyankを同期
+set clipboard=unnamed " クリップボードにyankを同期
 set showmatch " 括弧の対応関係を一瞬表示する
 set wildmenu " コマンドモードの補完
 set history=5000 " 保存するコマンド履歴の数
-
+set fileencoding=utf-8 " 保存時の文字コード
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
+set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
+set ambiwidth=double " □や○文字が崩れる問題を解決
 
 " autocmd QuickFixCmdPost *grep* cwindow " quickfix-windowを|cwしなくても開けるようになる
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-windowをtabnewで開く
@@ -75,6 +89,26 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-window�
 " 行末の空白を保存時に自動削除
 " autocmd BufWritePre * :%s/\s\+$//ge
 
+
+" ========================================
+" neocomplete・neosnippetの設定
+" ========================================
+" Vim起動時にneocompleteを有効にする
+let g:neocomplete#enable_at_startup = 1
+" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplete#enable_smart_case = 1
+" 3文字以上の単語に対して補完を有効にする
+let g:neocomplete#min_keyword_length = 3
+" 区切り文字まで補完する
+let g:neocomplete#enable_auto_delimiter = 1
+" 1文字目の入力から補完のポップアップを表示
+let g:neocomplete#auto_completion_start_length = 1
+" バックスペースで補完のポップアップを閉じる
+inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
+imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
+imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 
 " ===============
@@ -102,21 +136,32 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep tab cwindow " quickfix-window�
 set laststatus=2
 
 
-" ==============
+" ========================================
 " vim-powerlineの設定
-" ===============
+" ========================================
 " 三角のやつ
 let g:Powerline_symbols = 'fancy'
 
 
 " ========================================
 " ctrlp.vimの設定(内部grepの対象外にしたい)
+" 検索モードの切り替え  ctrl + f
 " ========================================
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.svg,*/node_modules/*
 let g:ctrlp_working_path_mode = 'ra'
+" マッチウインドウの設定. 「下部に表示, 大きさ40行で固定, 検索結果40件」
 let g:ctrlp_match_window = 'bottom,min:1,max:40,results:40'
-let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
-let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
+" .(ドット)から始まるファイルも検索対象にする
+let g:ctrlp_show_hidden = 1 
+" ファイル検索のみ使用
+let g:ctrlp_types = ['fil']
+" CtrlPの拡張として「funky」と「commandline」を使用
+let g:ctrlp_extensions = ['funky', 'commandline']
+" CtrlPCommandLineの有効化
+command! CtrlPCommandLine call ctrlp#init(ctrlp#commandline#id())
+" CtrlPFunkyの有効化
+let g:ctrlp_funky_matchtype = 'path' 
+
 
 
 " ========================================
@@ -166,8 +211,7 @@ nnoremap <C-j> <C-w><
 nnoremap <C-s>s :<C-u>sp<CR>
 nnoremap <C-s>v :<C-u>vs<CR>
 nnoremap <C-s>t :<C-u>tabnew<CR>:e .<CR>
-" ctrl + tでタブを開いてツリー表示
-" nnoremap <C-t> :tabnew<CR>:e .<CR>
+
 " ctrl + k でツリーの表示、非表示
 nnoremap <C-k> :NERDTreeFind<CR>
 
