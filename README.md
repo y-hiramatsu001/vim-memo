@@ -5,6 +5,9 @@
     cp -f /usr/local/Cellar/ricty/4.0.1/share/fonts/Ricty*.ttf ~/Library/Fonts/
     fc-cache -vf
 
+## font
+    D2Coding-Font-for-Powerline
+
 ## vim with lua install
     brew install lua
     brew reinstall vim --with-lua
