@@ -173,6 +173,7 @@ let g:ctrlp_show_hidden = 1
 " ファイル検索のみ使用
 let g:ctrlp_types = ['fil']
 " CtrlPの拡張として「funky」と「commandline」を使用
+" ctrl + f で関数検索機能に切り替え
 let g:ctrlp_extensions = ['funky', 'commandline']
 " CtrlPCommandLineの有効化
 command! CtrlPCommandLine call ctrlp#init(ctrlp#commandline#id())
