@@ -19,6 +19,7 @@
 * balias
 * peco
 * bobthefish
+* edc/bass
 
 ## diff-highlight settings
 * /usr/local/bin配下に
